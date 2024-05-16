@@ -1,0 +1,115 @@
+SELECT * FROM ALUMNOS;
+
+2.-SELECT nombre, localidad, fecha_nacimiento
+FROM alumnos;
+
+3.-SELECT nombre AS 'Nombre y apellidos'
+FROM alumnos;
+
+4.-SELECT nombre, faltas * 2 AS "Faltas de asistencia"
+FROM alumnos;
+
+5.-SELECT *
+FROM alumnos
+WHERE localidad = 'Lorca';
+
+6.-SELECT *
+FROM alumnos
+WHERE localidad IN ('Murcia', 'Alhama de Murcia');
+
+7.-SELECT *
+FROM alumnos
+WHERE localidad = 'Murcia' AND curso = '1º E.S.O.';
+
+8.-SELECT *
+FROM alumnos
+WHERE localidad = 'Lorca' AND curso = '2º Bachillerato' AND faltas > 10;
+
+9.-SELECT *
+FROM alumnos
+WHERE localidad = 'Murcia'
+ORDER BY nombre;
+
+10.-SELECT *
+FROM alumnos
+ORDER BY nivel, curso;
+
+11.-
+SELECT *
+FROM alumnos
+WHERE (curso = '1º curso' OR curso = '2º curso') AND faltas > 10;
+
+12.-SELECT *
+FROM alumnos
+WHERE (curso = '3º curso' OR curso = '4º curso') AND faltas < 10 AND localidad = 'Murcia'
+
+13.-SELECT DISTINCT curso
+FROM cursos;
+
+14.-SELECT *
+FROM alumnos
+WHERE curso = '1º de E.S.O.' AND faltas != 10;
+
+15.-SELECT *
+FROM alumnos
+WHERE nombre LIKE 'B%';
+
+
+16.-SELECT *
+FROM alumnos
+WHERE localidad = 'Murcia' AND nombre LIKE '%O';
+
+
+17.-SELECT *
+FROM alumnos
+WHERE curso = '1º de E.S.O.' AND nombre LIKE '_U%';
+
+
+18.-
+SELECT * FROM Alumnos WHERE Faltas IS NULL;
+
+
+19.-SELECT * FROM Alumnos
+WHERE Faltas BETWEEN 10 AND 20
+ORDER BY Nombre;
+
+20.-SELECT *
+FROM Alumnos
+WHERE Faltas BETWEEN 10 AND 20
+AND localidad = 'Murcia';
+
+21.-SELECT *
+FROM Alumnos
+WHERE Faltas BETWEEN 10 AND 20
+AND localidad = 'Murcia'
+AND curso = '1º de E.S.O.';
+
+
+22.-SELECT * FROM Alumnos
+WHERE Faltas < 10 OR Faltas > 20;
+
+
+23.-SELECT *
+FROM Alumnos
+WHERE YEAR(Fecha_Nacimiento) IN (1993, 1994)
+ORDER BY Nombre;
+
+24.-SELECT *
+FROM Alumnos
+WHERE Curso IN ('1º', '2º');
+
+25.-SELECT *
+FROM Alumnos
+WHERE Curso IN ('3º', '4º')
+AND Localidad = 'Murcia';
+
+26.-SELECT *
+FROM Alumnos
+WHERE Curso NOT IN ('1º de E.S.O.', '2º de E.S.O.', '3º de E.S.O.', '4º de E.S.O.')
+ORDER BY Curso DESC, Nombre DESC;
+
+27.-SELECT *
+FROM Alumnos
+WHERE Curso IN ('1º', '2º')
+AND Tipo <> 'Bachiller'
+ORDER BY Nombre;
