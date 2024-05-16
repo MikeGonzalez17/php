@@ -1,0 +1,57 @@
+-- Uno
+CREATE view Cliente AS
+
+select c.customerid, c.companyname, c.country, c.city
+from customers c
+where c.country = 'Mexico' or country = 'Brazil'
+order by country, city;
+
+-- Dos
+create view Ordenes as
+
+select o.orderid, o.orderdate, o.shipcountry, o.shipcity
+from orders o
+where year(o.orderdate)= 1996  and (o.shipcountry = 'France' and o.shipcity = 'Reims') or
+(o.shipcountry= 'USA' and o.shipcity != 'Seatle');
+
+-- Tres
+create view Productos as
+
+select p.productid, p.productname, s.companyname, c.categoryname, c.categoryid
+from products p join suppliers s join categories c
+where c.categoryid= '1' or c.categoryid= '3' or c.categoryid= '5';
+
+-- Cuatro
+create view Consultas as
+
+select o.orderid, e.Lastname, e.firstname, o.orderdate
+from orders o join employees e
+where orderdate between '1997-03-00' and '1997-03-15';
+
+-- Cinco
+create view Lista as
+
+select p.productid, p.productname, s.supplierid, s.companyName, c.categoryid, c.categoryname, p.unitprice
+from products p join suppliers s join categories c
+where s.country = 'Spain' and (categoryname = 'Beverages' or categoryname = 'Condiments');
+
+-- Seis
+create view Compras as
+
+select e.employeeid, s.companyname, s.contactname, c.categoryname, o.orderdate
+from employees e join suppliers s join categories c join orders o
+WHERE c.categoryname = 'Grains/Cereals' and (orderdate between '1997-05-00' and '1997-05-10');
+
+-- Siete
+create view Orden1 as
+
+select o.orderid, o.orderdate, e.lastname, e.firstname, c.companyname
+from orders o join employees e join customers c
+where c.country= 'Mexico' or e.country= 'Canada' or e.country= 'USA';
+
+-- Ocho
+create view Consultas1 as
+
+SELECT P.ProductID, P.ProductName, P.UnitPrice, S.CompanyName, S.Country
+FROM Products P JOIN Suppliers S ON P.SupplierID = S.SupplierID
+WHERE (S.Country = 'Spain' OR S.Country = 'Italy') AND P.UnitPrice > 20.0;
