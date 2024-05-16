@@ -1,0 +1,57 @@
+-- create database hospital;
+show databases;
+USE hospital;
+CREATE TABLE IF NOT EXISTS medicamentos (
+    id_medicamentos CHAR(5) PRIMARY KEY,
+    nombre VARCHAR(50),
+    substancia VARCHAR(50),
+    via_administracion VARCHAR(50),
+    cantidad INT(4),
+    excipiente CHAR(10),
+    indicaciones VARCHAR(50),
+    contraindicaciones VARCHAR(50),
+    reacciones VARCHAR(50),
+    controlado TINYINT(1)
+);
+CREATE TABLE IF NOT EXISTS Detalles_consulta (
+    id_consulta INT(4),
+    id_medicamentos CHAR(5) PRIMARY KEY,
+    prescripcion TEXT(16) NULL
+);
+
+create table if not exists consultas
+(
+id_Consulta int(4) primary key,
+id_Medico char(10),
+numero_issste char(10),
+indicaciones text(16),
+fecha datetime(6) not null
+);
+
+create table if not exists medicos
+(
+id_medico char(10) primary key,
+apellido_paterno varchar(30),
+apellido_materno varchar(30),
+nombre varchar(50) not null,
+especialidad varchar(50),
+fecha_titulacion datetime(6)
+);
+
+create table if not exists Pacientes 
+(
+    numero_issste CHAR(10) PRIMARY KEY,
+    RFC CHAR(10),
+    CURP CHAR(18),
+    nombre VARCHAR(50),
+    apellido_paterno VARCHAR(30),
+    apellido_materno VARCHAR(30),
+    fecha_nacimiento DATETIME(6),
+    sexo CHAR(1),
+    tipo_sanguineo CHAR(1),
+    factor_rh CHAR(1),
+    calle VARCHAR(50),
+    colonia VARCHAR(50),
+    ciudad VARCHAR(50),
+    cp CHAR(5) not null
+);
